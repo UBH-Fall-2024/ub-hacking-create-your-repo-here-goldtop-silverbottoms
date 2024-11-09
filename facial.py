@@ -1,9 +1,14 @@
 import cv2
 import time
+import os
 
 # Parameters
-num_images = 10  # Number of images to capture for testing
+num_images = 100  # Number of images to capture for testing
 frame_skip = 20  # Frames to skip for camera adjustment
+
+# Directory to save test images
+test_dir = "test"
+os.makedirs(test_dir, exist_ok=True)  # Create the directory if it doesn't exist
 
 # Start the webcam
 video_capture = cv2.VideoCapture(0)
@@ -22,11 +27,11 @@ for _ in range(frame_skip):
 for i in range(num_images):
     ret, frame = video_capture.read()
     if ret:
-        # Save each captured image with a unique filename
-        filename = f"test_image_{i+1}.jpg"
+        # Save each captured image in the "test" directory
+        filename = os.path.join(test_dir, f"test_image_{i+1}.jpg")
         cv2.imwrite(filename, frame)
         print(f"Test image {i+1} captured and saved as {filename}")
-        time.sleep(0.5)  # Pause briefly between captures
+        time.sleep(0.1)  # Pause briefly between captures
     else:
         print(f"Failed to capture test image {i+1}")
 
