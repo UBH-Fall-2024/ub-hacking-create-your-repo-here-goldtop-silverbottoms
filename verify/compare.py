@@ -36,7 +36,7 @@ for i in range(num_images):
 # Ensure we have enough encodings to proceed
 if len(test_encodings_list) < min_encodings:
     print(f"Only {len(test_encodings_list)} encodings captured, which is below the minimum required of {min_encodings}. Try capturing more images.")
-    exit()
+    sys.exit(1)
 
 # Average the test encodings to create a single robust encoding for comparison
 test_face_encoding = np.mean(test_encodings_list, axis=0)
