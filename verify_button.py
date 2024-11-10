@@ -12,7 +12,7 @@ def on_verify_press():
     print("Verify button pressed!")
     subprocess.call(["python3", "./verify/facial.py"])
     result = subprocess.call(["python3", "./verify/compare.py"])
-    if result.returncode == 0:
+    if result == 0:
         # lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[])
         # lcd.write_string(u"Hello world")
         print("Face verified from button press!\nSpinning motor...")
