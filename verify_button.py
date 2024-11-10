@@ -13,7 +13,7 @@ def on_verify_press():
     subprocess.call(["python3", "./verify/facial.py"])
     result = subprocess.call(["python3", "./verify/compare.py"])
     if result == 0:
-        servo_power.servo_power.on()
+        servo_power.pin.on()
         green_light.value = 1
         print("Face verified from button press!\nSpinning motor...")
         servo.max()
@@ -21,7 +21,7 @@ def on_verify_press():
         servo.min()
         print("Motor stopped.")
         green_light.value = 0
-        servo_power.servo_power.off()
+        servo_power.pin.off()
         servo_power.mu = False
     else:
         print("Face not verified from button press. Motor won't spin.")

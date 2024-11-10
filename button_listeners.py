@@ -6,7 +6,7 @@ import servo_power
 # Using BCM pin numbers
 reg_button = Button(21)
 ver_button = Button(20)
-servo_power.servo_power.off()
+servo_power.pin.off()
 servo_power.mu = False
 reg_result = 2
 
