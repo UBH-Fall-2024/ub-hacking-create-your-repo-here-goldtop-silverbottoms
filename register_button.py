@@ -1,5 +1,3 @@
-from gpiozero import Button, Device
-from gpiozero.pins.mock import MockFactory
 import subprocess
 
 

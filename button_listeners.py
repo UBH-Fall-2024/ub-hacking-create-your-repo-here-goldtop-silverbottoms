@@ -1,10 +1,12 @@
 from register_button import on_register_press
 from verify_button import on_verify_press
-from gpiozero import Button
+from gpiozero import Button, LED
 
 # Using BCM pin numbers
 reg_button = Button(21)
 ver_button = Button(20)
+servo_power = LED(27)
+servo_power.off()
 
 def button1():
     on_register_press()

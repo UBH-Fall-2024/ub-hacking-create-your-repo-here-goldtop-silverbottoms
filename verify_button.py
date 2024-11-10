@@ -1,8 +1,7 @@
-from gpiozero import Button, Device, Servo
-from gpiozero.pins.mock import MockFactory
+from gpiozero import  Servo
 from time import sleep
 import subprocess
-from RPLCD import CharLCD
+from button_listeners import servo_power
 
 
 servo = Servo(17)
@@ -14,6 +13,7 @@ def on_verify_press():
     if result == 0:
         # lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[])
         # lcd.write_string(u"Hello world")
+        servo_power.on()
         print("Face verified from button press!\nSpinning motor...")
         for _ in range(1):
             servo.max()
@@ -23,6 +23,7 @@ def on_verify_press():
         
         servo.mid()
         print("Motor stopped.")
+        servo_power.off()
     else:
         print("Face not verified from button press. Motor won't spin.")
         
