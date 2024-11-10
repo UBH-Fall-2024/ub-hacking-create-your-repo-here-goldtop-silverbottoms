@@ -6,8 +6,8 @@ import os
 known_face_encoding = np.load("known_face_encoding.npy")
 
 # Parameters
-num_images = 100  # Target number of test images to encode
-min_encodings = 70  # Minimum number of encodings needed to proceed
+num_images = 30  # Target number of test images to encode
+min_encodings = 18  # Minimum number of encodings needed to proceed
 test_dir = "test"  # Directory containing the test images
 tolerance = 0.4  # Tolerance for compare_faces (lower for higher sensitivity)
 distance_threshold = 0.4  # Custom threshold for face_distance (experiment with this value)

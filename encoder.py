@@ -3,8 +3,8 @@ import numpy as np
 import os
 
 # Parameters
-num_images = 100  # Target number of images to encode
-min_encodings = 70  # Minimum number of encodings needed to proceed
+num_images = 30  # Target number of images to encode
+min_encodings = 18  # Minimum number of encodings needed to proceed
 known_dir = "known"  # Directory containing the known images
 
 # List to store face encodings

@@ -3,7 +3,7 @@ import time
 import os
 
 # Parameters
-num_images = 100  # Number of images to capture
+num_images = 30  # Number of images to capture
 frame_skip = 20  # Frames to skip for camera adjustment
 
 # Directory to save known images
