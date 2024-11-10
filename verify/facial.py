@@ -37,4 +37,3 @@ for i in range(num_images):
 
 # Release the camera
 video_capture.release()
-cv2.destroyAllWindows()

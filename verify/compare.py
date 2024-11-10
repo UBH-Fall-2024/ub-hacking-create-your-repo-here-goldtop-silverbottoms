@@ -1,6 +1,7 @@
 import face_recognition
 import numpy as np
 import os
+import sys
 
 # Load the known face encoding from the saved file
 known_face_encoding = np.load("known_face_encoding.npy")
@@ -51,5 +52,7 @@ print(f"Face distance: {face_distance}")
 # Final decision based on both compare_faces and face_distance
 if match[0] and face_distance < distance_threshold:
     print("Face recognized!")
+    sys.exit(0)
 else:
     print("Face not recognized.")
+    sys.exit(1)
