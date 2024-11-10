@@ -7,12 +7,23 @@ from servo_power import servo_power
 reg_button = Button(21)
 ver_button = Button(20)
 servo_power.off()
+# mu = False
+
+reg_result = 2
 
 def button1():
-    on_register_press()
+    result = on_register_press()
+    global reg_result
+    if result == 1:
+        reg_result = 1
+    else: 
+        reg_result = 2
     
 def button2():
-    on_verify_press()
+    if reg_result == 1:
+        pass
+    else:
+        on_verify_press()
 
 reg_button.when_pressed = button1
 ver_button.when_pressed = button2

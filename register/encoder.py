@@ -1,6 +1,7 @@
 import face_recognition
 import numpy as np
 import os
+import sys
 
 # Parameters
 num_images = 30  # Target number of images to encode
@@ -30,7 +31,7 @@ for i in range(num_images):
 # Ensure we have enough encodings to proceed
 if len(face_encodings_list) < min_encodings:
     print(f"Only {len(face_encodings_list)} encodings captured, which is below the minimum required of {min_encodings}. Try capturing more images.")
-    exit()
+    sys.exit(1)
 
 # Average the encodings to create a single, robust encoding
 known_face_encoding = np.mean(face_encodings_list, axis=0)
