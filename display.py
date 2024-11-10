@@ -10,18 +10,6 @@ from RPLCD.gpio import CharLCD
 import lgpio
 
 
-chip = lgpio.gpiochip_open(0)  # Opens the main GPIO chip (chip 0)
-
-def setup(pin, direction):
-    if direction == 'out':
-        lgpio.gpio_claim_output(chip, pin)
-
-def output(pin, value):
-    lgpio.gpio_write(chip, pin, value)
-
-def cleanup():
-    lgpio.gpiochip_close(chip)
-
 lcd = CharLCD(
     numbering_mode='BOARD',
     cols=16,
@@ -29,7 +17,6 @@ lcd = CharLCD(
     pin_rs=37,
     pin_e=35,
     pins_data=[40, 38, 36, 32, 33, 31, 29, 23],
-    gpio=type('GPIOAdapter', (object,), {'setup': setup, 'output': output, 'cleanup': cleanup})()
 )
 
 # Write to the LCD
