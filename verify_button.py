@@ -6,7 +6,7 @@ from RPLCD import CharLCD
 
 
 # button = Button(20) # put number of GPIO pin in function
-# servo = Servo()
+servo = Servo(17)
 
 def on_verify_press():
     print("Verify button pressed!")
@@ -16,13 +16,13 @@ def on_verify_press():
         # lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[])
         # lcd.write_string(u"Hello world")
         print("Face verified from button press!\nSpinning motor...")
-        # for _ in range(5):
-        #     servo.max()
-        #     sleep(0.5)
-        #     servo.min()
-        #     sleep(0.5)
+        for _ in range(5):
+            servo.max()
+            sleep(0.5)
+            servo.min()
+            sleep(0.5)
         
-        # servo.mid()
+        servo.mid()
         print("Motor stopped.")
     else:
         print("Face not verified from button press. Motor won't spin.")

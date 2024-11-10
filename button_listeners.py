@@ -2,6 +2,7 @@ from register_button import on_register_press
 from verify_button import on_verify_press
 from gpiozero import Button
 
+# Using BCM pin numbers
 reg_button = Button(21)
 ver_button = Button(20)
 
