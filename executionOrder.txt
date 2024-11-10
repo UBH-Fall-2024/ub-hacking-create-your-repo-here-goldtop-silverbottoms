@@ -1,0 +1,4 @@
+face.py         #register User's face
+encoder.py      #encode the registered face
+facial.py       #capture the tester's face
+compare.py      #encode the captured face and output after comparing
