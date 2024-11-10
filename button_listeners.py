@@ -7,7 +7,7 @@ from servo_power import servo_power
 reg_button = Button(21)
 ver_button = Button(20)
 servo_power.off()
-
+# mu = False
 
 reg_result = 2
 

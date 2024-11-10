@@ -3,6 +3,7 @@ from time import sleep
 import subprocess
 from servo_power import servo_power
 
+# mu = True
 servo = Servo(17)
 red_light = PWMLED(26)
 green_light = PWMLED(19)
@@ -21,8 +22,10 @@ def on_verify_press():
         print("Motor stopped.")
         green_light.value = 0
         servo_power.off()
+        # mu = False
     else:
         print("Face not verified from button press. Motor won't spin.")
         red_light.value = 1
         sleep(3)
         red_light.value = 0
+        # mu = False
