@@ -5,7 +5,6 @@ import subprocess
 from RPLCD import CharLCD
 
 
-# button = Button(20) # put number of GPIO pin in function
 servo = Servo(17)
 
 def on_verify_press():
@@ -16,7 +15,7 @@ def on_verify_press():
         # lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[])
         # lcd.write_string(u"Hello world")
         print("Face verified from button press!\nSpinning motor...")
-        for _ in range(5):
+        for _ in range(1):
             servo.max()
             sleep(0.5)
             servo.min()
@@ -27,4 +26,3 @@ def on_verify_press():
     else:
         print("Face not verified from button press. Motor won't spin.")
         
-# button.when_activated = on_verify_press
