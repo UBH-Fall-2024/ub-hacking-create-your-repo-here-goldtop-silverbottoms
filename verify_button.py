@@ -6,9 +6,9 @@ from RPLCD import CharLCD
 
 
 # Enable Mock mode
-Device.pin_factory = MockFactory()
+# Device.pin_factory = MockFactory()
 
-button = Button() # put number of GPIO pin in function
+button = Button(38) # put number of GPIO pin in function
 servo = Servo()
 
 def on_verify_press():

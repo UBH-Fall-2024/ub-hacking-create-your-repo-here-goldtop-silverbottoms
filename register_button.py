@@ -4,9 +4,9 @@ import subprocess
 
 
 # Enable Mock mode
-Device.pin_factory = MockFactory()
+# Device.pin_factory = MockFactory()
 
-button = Button() # put number of GPIO pin in function
+button = Button(40) # put number of GPIO pin in function
 
 def on_register_press():
     print("Register button pressed!")
