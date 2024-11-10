@@ -1,29 +1,31 @@
-from gpiozero import  Servo
+from gpiozero import Servo, PWMLED
 from time import sleep
 import subprocess
 from servo_power import servo_power
 
 
 servo = Servo(17)
+red_light = PWMLED(26)
+green_light = PWMLED(19)
 
 def on_verify_press():
     print("Verify button pressed!")
     subprocess.call(["python3", "./verify/facial.py"])
     result = subprocess.call(["python3", "./verify/compare.py"])
     if result == 0:
-        # lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[])
-        # lcd.write_string(u"Hello world")
         servo_power.on()
+        green_light.value = 1
         print("Face verified from button press!\nSpinning motor...")
-        for _ in range(1):
-            servo.max()
-            sleep(0.5)
-            servo.min()
-            sleep(0.5)
-        
+        servo.max()
+        sleep(0.5)
+        servo.min()
+        sleep(0.5)
         servo.mid()
         print("Motor stopped.")
+        green_light.value = 0
         servo_power.off()
     else:
         print("Face not verified from button press. Motor won't spin.")
-        
+        red_light.value = 1
+        sleep(1)
+        red_light.value = 0
