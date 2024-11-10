@@ -1,7 +1,7 @@
 from gpiozero import  Servo
 from time import sleep
 import subprocess
-from button_listeners import servo_power
+from servo_power import servo_power
 
 
 servo = Servo(17)
