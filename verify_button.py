@@ -16,9 +16,9 @@ def on_verify_press():
         servo_power.on()
         green_light.value = 1
         print("Face verified from button press!\nSpinning motor...")
-        servo.max()
+        servo.value = 0.5
         sleep(5)
-        servo.mid()
+        servo.value = -0.5
         print("Motor stopped.")
         green_light.value = 0
         servo_power.off()
